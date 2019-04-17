@@ -1,0 +1,65 @@
+Installation
+
+    -npm init
+    -npm install express
+    -npm i body-parser
+    -npm i request
+    -npm i request-promise-native
+    -npm i pg
+    -npm i pg-hstore
+    -npm i nodemon    //
+    -npm install -g pm2
+    -npm i dotenv
+
+
+
+Discription
+  0.
+    -create file app.js
+    -create a server on port 6060
+    -start a server(successful)
+    -create a routes
+    -store routes to object of app ex.->app.use(routes);
+    -create new collection in postman for api with different methods(GET,POST,PUT,DELETE) 
+    -initialize the required module in user_routes.js and user.js files.
+  1.
+    -create get api using  ->router.get('/', function(req,res){});  /*sequelize*/
+    -get random users from randomuser using https://randomuser.me/api/ 
+    -fetch data using request-promise-native module and call GET api from postman & use pagination and sorting (Successful)
+  2. 
+    -create database in postgreSQL.
+    -make a connection using Sequelize ORM
+    -create table in database using const  /*User = sequelize.define('users', {});*/ 
+  3.
+    -create post api using  ->router.post('/', function(req,res){});
+    -add random users to the database with sequelize using create method & request-promise-native module & mapping
+    -add random users with call POST api from postman (successful)
+  4. 
+    -create post api to add users to project-database manually
+    -call api from postman (successful) 
+  5.
+    -create get api to get users from project-database
+    -call api from postman (successful)
+  6.
+    -create put api to update data from project-database using 
+    router.put('/api/:id', function (req, res) {
+        user.update({},where: {
+            id: req.params.id
+        }).then(function (result) {
+        res.json(result);
+         });
+      });
+      -call api in postman to update user data -> use id of user to api to update data of that user (successful)
+  7.
+    -create DELETE api to delete data from project-database using
+    router.delete('/api/:id', function (req, res) {
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function (result) {
+        res.json(result);
+    })   
+    - call api in postman to delete user data -> use id of that user to api to delete data of that user (successful)
+  8.
+    -create environment variable (.env) to configure different aspects of Node.js application. 
